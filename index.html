@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+	<meta name="generator" content="Hugo 0.41" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Functional Programming (Fantasy Land JavaScript specification Guide)</title>
+    <meta name="description" content="Functional Programming (Fantasy Land JavaScript specification Guide)">
+
+
+    <link rel="shortcut icon" href="/fp/images/favicon.png" type="image/x-icon" />
+<link rel="icon" href="/fp/images/favicon.png" type="image/x-icon" />
+
+    
+    <link href="/fp/css/nucleus.css?1527629502" rel="stylesheet">
+    <link href="/fp/css/font-awesome.min.css?1527629502" rel="stylesheet">
+    <link href="/fp/css/hybrid.css?1527629502" rel="stylesheet">
+    <link href="/fp/css/featherlight.min.css?1527629502" rel="stylesheet">
+    <link href="/fp/css/perfect-scrollbar.min.css?1527629502" rel="stylesheet">
+    <link href="/fp/css/auto-complete.css?1527629502" rel="stylesheet">
+    <link href="/fp/css/theme.css?1527629502" rel="stylesheet">
+    <link href="/fp/css/hugo-theme.css?1527629502" rel="stylesheet">
+    
+
+    <script src="/fp/js/jquery-2.x.min.js?1527629502"></script>
+    
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{ 
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/fp/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+
+<script type="text/javascript" src="/fp/js/lunr.min.js?1527629502"></script>
+<script type="text/javascript" src="/fp/js/auto-complete.js?1527629502"></script>
+<script type="text/javascript">
+    
+        var baseurl = '\/fp';
+    
+</script>
+<script type="text/javascript" src="/fp/js/search.js?1527629502"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/fp/functor/" title="Functor" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/fp/functor/">
+          <b>1. </b>Functor
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/fp/setoid/" title="Setoid" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/fp/setoid/">
+          <b>2. </b>Setoid
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/fp/semigroup/" title="Semigroup" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/fp/semigroup/">
+          <b>3. </b>Semigroup
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/fp/monoid/" title="Monoid" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/fp/monoid/">
+          <b>4. </b>Monoid
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/fp/alt/" title="Alt" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/fp/alt/">
+          <b>5. </b>Alt
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://github.com/SanderV1992"><i class='fa fa-github'></i> Github repo</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://gohugo.io/"><i class='fa fa-bookmark'></i> Hugo Documentation</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+
+        
+          <div id="chapter">
+        
+        <div id="body-inner">
+          
+
+        
+
+<span id="sidebar-toggle-span">
+<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
+</span>
+
+ 
+
+
+<h3 id="functional-programming-fantasy-land-javascript-specification-guide">Functional Programming (Fantasy Land JavaScript specification Guide)</h3>
+
+<h1 id="basics">Basics</h1>
+
+<p><img src="fp.png" alt="fp" /></p>
+
+<h3 id="read-books-and-articles">Read books and Articles</h3>
+
+<ul>
+<li><a href="http://www.tomharding.me/fantasy-land/">http://www.tomharding.me/fantasy-land/</a></li>
+<li><a href="https://drive.google.com/open?id=1Fg8fnpoyGx50v1C1FzDq8xgNo0Xb45Fo">https://drive.google.com/open?id=1Fg8fnpoyGx50v1C1FzDq8xgNo0Xb45Fo</a></li>
+<li><a href="https://github.com/MostlyAdequate/mostly-adequate-guide">https://github.com/MostlyAdequate/mostly-adequate-guide</a></li>
+<li><a href="https://drive.google.com/open?id=1j1IUHjiKYs3WSzgYQT294Eyro9JosoXT">https://drive.google.com/open?id=1j1IUHjiKYs3WSzgYQT294Eyro9JosoXT</a></li>
+</ul>
+	
+  
+        
+            </div> 
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+        
+        
+            <a class="nav nav-next" href="/fp/functor/" title="Functor" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/fp/js/clipboard.min.js?1527629502"></script>
+    <script src="/fp/js/perfect-scrollbar.min.js?1527629502"></script>
+    <script src="/fp/js/perfect-scrollbar.jquery.min.js?1527629502"></script>
+    <script src="/fp/js/jquery.sticky.js?1527629502"></script>
+    <script src="/fp/js/featherlight.min.js?1527629502"></script>
+    <script src="/fp/js/html5shiv-printshiv.min.js?1527629502"></script>
+    <script src="/fp/js/highlight.pack.js?1527629502"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/fp/js/modernizr.custom.71422.js?1527629502"></script>
+    <script src="/fp/js/learn.js?1527629502"></script>
+    <script src="/fp/js/hugo-learn.js?1527629502"></script>
+
+    <link href="/fp/mermaid/mermaid.css?1527629502" type="text/css" rel="stylesheet" />
+    <script src="/fp/mermaid/mermaid.js?1527629502"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

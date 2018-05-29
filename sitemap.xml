@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/fp/functor/</loc>
+  </url>
+  
+  <url>
+    <loc>/fp/setoid/</loc>
+  </url>
+  
+  <url>
+    <loc>/fp/semigroup/</loc>
+  </url>
+  
+  <url>
+    <loc>/fp/monoid/</loc>
+  </url>
+  
+  <url>
+    <loc>/fp/alt/</loc>
+  </url>
+  
+  <url>
+    <loc>/fp/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/fp/</loc>
+  </url>
+  
+  <url>
+    <loc>/fp/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
