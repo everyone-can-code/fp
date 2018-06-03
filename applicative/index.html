@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Traversable</title>
-    <meta name="description" content="Traversable">
+    <title>Applicative</title>
+    <meta name="description" content="Applicative">
 
 
     <link rel="shortcut icon" href="/fp/images/favicon.png" type="image/x-icon" />
@@ -31,7 +31,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/fp/traversable/">
+  <body class="" data-url="/fp/applicative/">
     <nav id="sidebar" class="">
 
 
@@ -201,8 +201,8 @@
   
     
     <li data-nav-id="/fp/traversable/" title="Traversable" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/fp/traversable/">
@@ -267,8 +267,8 @@
   
     
     <li data-nav-id="/fp/applicative/" title="Applicative" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/fp/applicative/">
@@ -491,7 +491,7 @@
             
           
           
-            <a href='/fp/'>Functional Programming (Fantasy Land JavaScript specification Guide)</a> > Traversable
+            <a href='/fp/'>Functional Programming (Fantasy Land JavaScript specification Guide)</a> > Applicative
           
          
           
@@ -514,24 +514,35 @@
 
 
 
-<h1 id="traversable">Traversable</h1>
+<h1 id="applicative">Applicative</h1>
 
-<p>-</p>
+<p><strong>Applicative</strong> types are <strong>Apply</strong> types with one extra function, which we define in Fantasy Land as &ldquo;<strong>of</strong>&ldquo;:</p>
+
+<p>With of, we can take a value, and lift it into the given Applicative. That’s it! In the wild, most Apply types you practically use will also be Applicative.</p>
 
 <h2 id="graphic">Graphic</h2>
 
 <div class="mermaid" align="center">
 graph LR;
-    A[Foldable] --> C{Decision}
-    B[Functor] --> C[Traversable]
+    A[Functor] --> B[Apply]
+    B --> C[Applicative]
 </div>
 
 
 <h2 id="example">Example:</h2>
 
-<h3 id="ramda">Ramda:</h3>
+<pre><code class="language-js">const Container = function(x) {
+    this.__value = x
+}
 
-<pre><code class="language-js">-
+Container.of = x =&gt; new Container(x)
+
+Container.prototype.map = function(f) {
+    return Container.of(f(this.__value))
+}
+
+
+Container.of(2).map((two) =&gt; two + 2); // Container {__value: 4}
 </code></pre>
 
 <hr />
@@ -539,7 +550,7 @@ graph LR;
 <h4 id="read-more">Read More:</h4>
 
 <ul>
-<li><a href="http://www.tomharding.me/2017/05/08/fantas-eel-and-specification-12/">http://www.tomharding.me/2017/05/08/fantas-eel-and-specification-12/</a></li>
+<li><a href="http://www.tomharding.me/2017/04/17/fantas-eel-and-specification-9/">http://www.tomharding.me/2017/04/17/fantas-eel-and-specification-9/</a></li>
 </ul>
 
 
@@ -679,6 +690,54 @@ graph LR;
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -806,54 +865,6 @@ graph LR;
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
         
@@ -861,10 +872,10 @@ graph LR;
 
 
         
-            <a class="nav nav-prev" href="/fp/foldable/" title="Foldable"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/fp/apply/" title="Apply"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/fp/contravariant/" title="Contravariant" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/fp/alt_plus_and_alternative/" title="Alt, Plus, and Alternative" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
